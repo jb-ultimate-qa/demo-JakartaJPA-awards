@@ -1,0 +1,12 @@
+insert into award values (1,2024, 'Munich - Winner');
+insert into award values (2,2024, 'Munich - Silver');
+insert into award values (3,2024, 'Munich - Bronze');
+insert into award values (4,2023, 'Rome - Winner');
+insert into award values (5,2023, 'Rome - Silver');
+insert into award values (6,2023, 'Rome - Bronze');
+insert into award values (7,2022, 'Belgrade - Winner');
+insert into award values (8,2022, 'Belgrade - Silver');
+insert into award values (9,2022, 'Belgrade - Bronze');
+insert into award values (10,2021, 'Luxembourg - Winner');
+insert into award values (11,2021, 'Luxembourg - Silver');
+insert into award values (12,2021, 'Luxembourg - Bronze');
