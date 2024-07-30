@@ -1,9 +1,6 @@
 package my.example.awards.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "award")
@@ -17,6 +14,18 @@ public class Award {
 
     @Column(name = "title", nullable = false)
     private String title;
+
+    @ManyToOne
+    @JoinColumn(name = "winner_id")
+    private Player winner;
+
+    public Player getWinner() {
+        return winner;
+    }
+
+    public void setWinner(Player winner) {
+        this.winner = winner;
+    }
 
     public Short getYear() {
         return year;
