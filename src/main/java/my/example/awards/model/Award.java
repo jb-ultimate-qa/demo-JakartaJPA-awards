@@ -9,7 +9,7 @@ public class Award {
     @Column(name = "id", nullable = false)
     private Integer id;
 
-    @Column(name = "year", nullable = false)
+    @Column(name = "year_", nullable = false)
     private Short year;
 
     @Column(name = "title", nullable = false)

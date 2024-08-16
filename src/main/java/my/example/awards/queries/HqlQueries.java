@@ -10,11 +10,13 @@ import static my.example.awards.utils.QueryResultPrettier.printObjects;
 
 public class HqlQueries {
 
-    private static final SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
 
-    static {
+    public HqlQueries() {
         try {
-            sessionFactory = new Configuration().configure().buildSessionFactory();
+            sessionFactory = new Configuration()
+                    .configure("hibernate.cfg.xml")
+                    .buildSessionFactory();
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }

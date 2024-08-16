@@ -9,9 +9,9 @@ import static my.example.awards.utils.QueryResultPrettier.printObjects;
 
 public class SqlQueries {
 
-    private static final EntityManager entityManager;
+    private final EntityManager entityManager;
 
-    static {
+    public SqlQueries() {
         try { // use unit from persistence.xml
             entityManager = Persistence.createEntityManagerFactory("jpa-default")
                     .createEntityManager();
@@ -22,7 +22,7 @@ public class SqlQueries {
 
     public String getAwardsAfter2022(){ //works
         var results = entityManager
-                .createNativeQuery("select * from award where award.year > 2022;", Award.class)
+                .createNativeQuery("select * from award where award.year_ > 2022;", Award.class)
                 .getResultList();
 
         printObjects(results);

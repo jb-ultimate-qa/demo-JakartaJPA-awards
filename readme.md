@@ -12,6 +12,7 @@ Example configuration is in `.idea/runConfigurations/JBoss_WildFly_31_0_0_Final.
 
 **Endpoints:**
 * `/hello` - just text
-* `/awards/get-all` - JPQL query using persistence.EntityManager
-* `/awards/get-all-hib` - HQL query using hibernate.SessionFactory
-* `/awards/get-after-2022` - Native SQL query using persistence.EntityManager
+* `/awards` - list of queries
+* `/awards/jpql-get-all` - JPQL query using persistence.EntityManager
+* `/awards/hql-get-all`  - HQL query using hibernate.SessionFactory
+* `/awards/sql-get-awards-after-2022` - Native SQL query using persistence.EntityManager
