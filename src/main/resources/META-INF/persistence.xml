@@ -20,19 +20,15 @@
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <property name="jakarta.persistence.jdbc.password" value="postgres"/>
 
-            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />
-<!--            <property name="hibernate.hbm2ddl.auto" value="update" />-->
-            <property name="show_sql" value="true" />
-            <property name="hibernate.temp.use_jdbc_metadata_defaults" value="false" />
-            <!-- Automatic schema export -->
-<!--            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
+<!--        <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />-->
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="hibernate.highlight_sql" value="true"/>
+<!--        <property name="hibernate.hbm2ddl.auto" value="update" />-->
 
-            <!-- SQL statement logging -->
-<!--            <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>-->
-<!--            <property name="hibernate.show_sql" value="true"/>-->
-<!--            <property name="hibernate.format_sql" value="true"/>-->
-<!--            <property name="hibernate.highlight_sql" value="true"/>-->
-<!--            <property name="hibernate.hbm2ddl.auto" value="update"/>-->
+            <!-- Automatic schema export -->
+<!--        <property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
+
         </properties>
     </persistence-unit>
 </persistence>

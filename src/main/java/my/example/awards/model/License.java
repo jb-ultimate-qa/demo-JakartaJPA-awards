@@ -13,6 +13,9 @@ public class License {
     @Column(name = "license_number")
     private String licenseNumber;
 
+    @Embedded
+    private LicenseInfo licenseInfo;
+
     public String getLicenseNumber() {
         return licenseNumber;
     }
