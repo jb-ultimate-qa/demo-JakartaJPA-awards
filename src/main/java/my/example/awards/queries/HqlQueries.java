@@ -31,4 +31,14 @@ public class HqlQueries {
         printObjects(results);
         return concatenateObjects(results);
     }
+
+    public String getAwardsOfHighRatedPlayers(){
+        Session session = sessionFactory.openSession();
+        var results = session
+                .createQuery("FROM Award a where a.winner.rating >= 1200", Award.class)
+                .getResultList();
+
+        printObjects(results);
+        return concatenateObjects(results);
+    }
 }

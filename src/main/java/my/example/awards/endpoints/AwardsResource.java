@@ -17,6 +17,7 @@ public class AwardsResource {
                 Try this URL:</br></br>
                 <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/jpql-get-all">awards/jpql-get-all</a></br>
                 <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/hql-get-all">awards/hql-get-all</a></br>
+                <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/hql-get-awards-of-high-rated-players">awards/hql-get-awards-of-high-rated-players</a></br>
                 <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/sql-get-awards-after-2022">awards/sql-get-awards-after-2022</a>
                 """;
     }
@@ -33,6 +34,13 @@ public class AwardsResource {
     public String getAllAwardsHibernate() {
         HqlQueries hqlQueries = new HqlQueries();
         return hqlQueries.getAllAwards();
+    }
+
+    @GET
+    @Path("hql-get-awards-of-high-rated-players")
+    public String getAwardsOfHighRatedPlayers() {
+        HqlQueries hqlQueries = new HqlQueries();
+        return hqlQueries.getAwardsOfHighRatedPlayers();
     }
 
     @GET

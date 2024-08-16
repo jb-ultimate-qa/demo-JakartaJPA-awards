@@ -22,7 +22,7 @@ public class SqlQueries {
 
     public String getAwardsAfter2022(){ //works
         var results = entityManager
-                .createNativeQuery("select * from award where award.year_ > 2022;", Award.class)
+                .createNativeQuery("select * from award where award.year_ > 2023;", Award.class)
                 .getResultList();
 
         printObjects(results);
