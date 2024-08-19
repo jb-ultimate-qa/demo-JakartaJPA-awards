@@ -1,6 +1,7 @@
 package my.example.awards.queries;
 
 import my.example.awards.model.Award;
+import my.example.awards.model.Referee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -45,7 +46,7 @@ public class HqlQueries {
     public String getRefereeByLicenceNumber(String licenceNumber){
         Session session = sessionFactory.openSession();
         var results = session
-                .createQuery("select r FROM Referee r where r.license.licenseNumber = :ln", Award.class)
+                .createQuery("FROM Referee r where r.license.licenseNumber = :ln", Referee.class)
                 .setParameter("ln", licenceNumber)
                 .getResultList();
 

@@ -7,8 +7,11 @@ import jakarta.ws.rs.Produces;
 @Path("/hello")
 public class HelloResource {
     @GET
-    @Produces("text/plain")
+    @Produces("text/html")
     public String hello() {
-        return "Hello, User!";
+        return "Hello, User!" +
+                "Try this URL:</br></br><a href=\"awards\">awards</a></br>" +
+                "<a href=\"players\">players</a></br>" +
+                "<a href=\"referee\">referee</a></br>";
     }
 }

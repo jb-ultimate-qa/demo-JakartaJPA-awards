@@ -22,8 +22,6 @@ public class Referee extends Person {
 
     @Override
     public String toString() {
-        return "Referee{" +
-                "license=" + license +
-                '}';
+        return "Referee " + getFullName() + " with license number " + license.getLicenseNumber();
     }
 }
