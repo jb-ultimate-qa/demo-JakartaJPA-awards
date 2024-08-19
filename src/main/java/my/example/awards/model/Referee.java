@@ -19,4 +19,11 @@ public class Referee extends Person {
     public void setLicense(License license) {
         this.license = license;
     }
+
+    @Override
+    public String toString() {
+        return "Referee{" +
+                "license=" + license +
+                '}';
+    }
 }

@@ -41,4 +41,15 @@ public class HqlQueries {
         printObjects(results);
         return concatenateObjects(results);
     }
+
+    public String getRefereeByLicenceNumber(String licenceNumber){
+        Session session = sessionFactory.openSession();
+        var results = session
+                .createQuery("select r FROM Referee r where r.license.licenseNumber = :ln", Award.class)
+                .setParameter("ln", licenceNumber)
+                .getResultList();
+
+        printObjects(results);
+        return concatenateObjects(results);
+    }
 }

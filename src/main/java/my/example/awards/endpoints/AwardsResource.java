@@ -13,13 +13,11 @@ public class AwardsResource {
     @Produces("text/html")
     @Path("/")
     public String getLinks() {
-        return """
-                Try this URL:</br></br>
-                <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/jpql-get-all">awards/jpql-get-all</a></br>
-                <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/hql-get-all">awards/hql-get-all</a></br>
-                <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/hql-get-awards-of-high-rated-players">awards/hql-get-awards-of-high-rated-players</a></br>
-                <a href="/demoJPA-awards-1.0-SNAPSHOT/awards/sql-get-awards-after-2022">awards/sql-get-awards-after-2022</a>
-                """;
+        return "Try this URL:</br></br><a href=\"" +
+                "awards/jpql-get-all\">awards/jpql-get-all</a></br><a href=\"" +
+                "awards/hql-get-all\">awards/hql-get-all</a></br><a href=\"" +
+                "awards/hql-get-awards-of-high-rated-players\">awards/hql-get-awards-of-high-rated-players</a></br><a href=\"" +
+                "awards/sql-get-awards-after-2022\">awards/sql-get-awards-after-2022</a>";
     }
 
     @GET

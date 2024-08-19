@@ -32,4 +32,11 @@ public class License {
         this.id = id;
     }
 
+    @Override
+    public String toString() {
+        return "License{" +
+                "licenseInfo=" + licenseInfo +
+                ", licenseNumber='" + licenseNumber + '\'' +
+                '}';
+    }
 }

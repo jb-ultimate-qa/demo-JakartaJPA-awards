@@ -28,4 +28,18 @@ public class JpqlQueries {
         printObjects(results);
         return concatenateObjects(results);
     }
+
+    public String getPlayersBySchool(String sportSchoolName){
+        var results = entityManager
+                .createQuery("""
+                    select pl.fullName from Player pl
+                        join pl.sportSchools ss
+                        where ss.title = ?1
+                    """)
+                .setParameter(1, sportSchoolName)
+                .getResultList();
+
+        printObjects(results);
+        return concatenateObjects(results);
+    }
 }
