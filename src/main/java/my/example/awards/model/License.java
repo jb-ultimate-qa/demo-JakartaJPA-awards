@@ -32,4 +32,11 @@ public class License {
         this.id = id;
     }
 
+    public LicenseInfo getLicenseInfo() {
+        return licenseInfo;
+    }
+
+    public void setLicenseInfo(LicenseInfo licenseInfo) {
+        this.licenseInfo = licenseInfo;
+    }
 }
