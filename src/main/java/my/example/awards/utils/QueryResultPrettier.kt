@@ -1,28 +1,22 @@
-package my.example.awards.utils;
+package my.example.awards.utils
 
-import java.util.List;
+object QueryResultPrettier {
+    fun <T> concatenateObjects(objects: List<T?>): String {
+        if (objects.isEmpty()) return ""
 
-import static java.lang.System.out;
-
-public class QueryResultPrettier {
-
-    public static <T> String concatenateObjects(List<T> objects){
-        if (objects.isEmpty()) return "";
-
-        StringBuilder result = new StringBuilder();
-        for (T item:objects){
-            result.append(item.toString());
-            result.append("\n");
+        val result = StringBuilder()
+        for (item in objects) {
+            result.append(item.toString())
+            result.append("\n")
         }
-        return result.toString();
+        return result.toString()
     }
 
-    public static <T> void printObjects(List<T> objects){
-        out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-        if (objects.isEmpty()) out.println("~~~nothing~~~");
-        else
-            for (T item:objects){
-                out.println(item.toString());
-            }
+    fun <T> printObjects(objects: List<T?>) {
+        println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        if (objects.isEmpty()) println("~~~nothing~~~")
+        else for (item in objects) {
+            println(item.toString())
+        }
     }
 }
