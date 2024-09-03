@@ -25,7 +25,7 @@ class AwardsResource {
     val allAwards: String?
         get() {
             val jpqlQueries = JpqlQueries()
-            return jpqlQueries.getAllAwards()
+            return jpqlQueries.allAwards
         }
 
     @get:Path("hql-get-all")

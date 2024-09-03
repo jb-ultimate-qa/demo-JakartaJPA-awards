@@ -1,45 +1,46 @@
-package my.example.awards.queries;
+package my.example.awards.queries
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
+import jakarta.persistence.EntityManager
+import jakarta.persistence.Persistence
+import my.example.awards.utils.QueryResultPrettier.concatenateObjects
+import my.example.awards.utils.QueryResultPrettier.printObjects
 
-import static my.example.awards.utils.QueryResultPrettier.concatenateObjects;
-import static my.example.awards.utils.QueryResultPrettier.printObjects;
+class JpqlQueries {
+    private val entityManager: EntityManager?
 
-public class JpqlQueries {
-
-    private final EntityManager entityManager;
-
-    public JpqlQueries() {
+    init {
         try { // use unit from persistence.xml
-            EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("jpa-default");
-            entityManager = entityManagerFactory.createEntityManager();
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+            val entityManagerFactory = Persistence.createEntityManagerFactory("jpa-default")
+            entityManager = entityManagerFactory.createEntityManager()
+        } catch (ex: Throwable) {
+            throw ExceptionInInitializerError(ex)
         }
     }
 
-    public String getAllAwards(){ // works
-        var results = entityManager
+    val allAwards: String
+        get() { // works
+            val results = entityManager!!
                 .createQuery("FROM Award a")
-                .getResultList();
+                .resultList
 
-        printObjects(results);
-        return concatenateObjects(results);
-    }
+            printObjects<Any?>(results)
+            return concatenateObjects<Any?>(results)
+        }
 
-    public String getPlayersBySchool(String sportSchoolName){
-        var results = entityManager
-                .createQuery("""
+    fun getPlayersBySchool(sportSchoolName: String?): String {
+        val results = entityManager!!
+            .createQuery(
+                """
                     select pl.fullName from Player pl
                         join pl.sportSchools ss
                         where ss.title = ?1
-                    """)
-                .setParameter(1, sportSchoolName)
-                .getResultList();
+                    
+                    """.trimIndent()
+            )
+            .setParameter(1, sportSchoolName)
+            .resultList
 
-        printObjects(results);
-        return concatenateObjects(results);
+        printObjects<Any?>(results)
+        return concatenateObjects<Any?>(results)
     }
 }
