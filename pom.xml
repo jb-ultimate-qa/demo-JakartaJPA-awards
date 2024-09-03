@@ -118,14 +118,21 @@
                     <compilerPlugins>
                         <!-- Maybe the project is already Ok currently. -->
                         <!-- But we can add problematic classes later, so let's add the plugin. -->
+                        <plugin>all-open</plugin>
                         <plugin>jpa</plugin>
                     </compilerPlugins>
-                    <!--<pluginOptions>-->
+                    <pluginOptions>
+                        <option>all-open:annotation=jakarta.ws.rs.Path</option>
                         <!--<option>no-arg:annotation=jpa.specific.AdditionalAnnotation</option>-->
                         <!--<option>no-arg:invokeInitializers=true</option>-->
-                    <!--</pluginOptions>-->
+                    </pluginOptions>
                 </configuration>
                 <dependencies>
+                    <dependency>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-allopen</artifactId>
+                        <version>${kotlin.version}</version>
+                    </dependency>
                     <dependency>
                         <groupId>org.jetbrains.kotlin</groupId>
                         <artifactId>kotlin-maven-noarg</artifactId>
