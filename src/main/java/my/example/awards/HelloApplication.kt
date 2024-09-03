@@ -1,9 +1,7 @@
-package my.example.awards;
+package my.example.awards
 
-import jakarta.ws.rs.ApplicationPath;
-import jakarta.ws.rs.core.Application;
+import jakarta.ws.rs.ApplicationPath
+import jakarta.ws.rs.core.Application
 
 @ApplicationPath("/")
-public class HelloApplication extends Application {
-
-}
+class HelloApplication : Application()
