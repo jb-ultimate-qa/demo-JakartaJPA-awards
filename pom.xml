@@ -124,14 +124,14 @@
                         <!--<option>no-arg:annotation=jpa.specific.AdditionalAnnotation</option>-->
                         <!--<option>no-arg:invokeInitializers=true</option>-->
                     <!--</pluginOptions>-->
-                    <dependencies>
-                        <dependency>
-                            <groupId>org.jetbrains.kotlin</groupId>
-                            <artifactId>kotlin-maven-noarg</artifactId>
-                            <version>${kotlin.version}</version>
-                        </dependency>
-                    </dependencies>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.jetbrains.kotlin</groupId>
+                        <artifactId>kotlin-maven-noarg</artifactId>
+                        <version>${kotlin.version}</version>
+                    </dependency>
+                </dependencies>
             </plugin>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
