@@ -114,6 +114,23 @@
                     <!-- We DO need 2.0 or later. -->
                     <languageVersion>2.0</languageVersion>
                     <apiVersion>2.0</apiVersion>
+
+                    <compilerPlugins>
+                        <!-- Maybe the project is already Ok currently. -->
+                        <!-- But we can add problematic classes later, so let's add the plugin. -->
+                        <plugin>jpa</plugin>
+                    </compilerPlugins>
+                    <!--<pluginOptions>-->
+                        <!--<option>no-arg:annotation=jpa.specific.AdditionalAnnotation</option>-->
+                        <!--<option>no-arg:invokeInitializers=true</option>-->
+                    <!--</pluginOptions>-->
+                    <dependencies>
+                        <dependency>
+                            <groupId>org.jetbrains.kotlin</groupId>
+                            <artifactId>kotlin-maven-noarg</artifactId>
+                            <version>${kotlin.version}</version>
+                        </dependency>
+                    </dependencies>
                 </configuration>
             </plugin>
             <plugin>
