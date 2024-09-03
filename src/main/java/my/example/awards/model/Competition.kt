@@ -1,91 +1,43 @@
-package my.example.awards.model;
+package my.example.awards.model
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column
+import jakarta.persistence.Embedded
+import jakarta.persistence.Entity
+import jakarta.persistence.Enumerated
+import jakarta.persistence.GeneratedValue
+import jakarta.persistence.GenerationType
+import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "competition")
-public class Competition {
+class Competition {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(name = "id", nullable = false)
-    private Long id;
+    var id: Long? = null
 
     @Column(name = "title")
-    private String title;
+    var title: String? = null
 
     @Enumerated
     @Column(name = "competition_level")
-    private CompetitionLevel competitionLevel;
+    var competitionLevel: CompetitionLevel? = null
 
     @Embedded
-    private Location location;
+    var location: Location? = null
 
     @ManyToOne
     @JoinColumn(name = "referee_id")
-    private Referee referee;
+    var referee: Referee? = null
 
     @ManyToOne
     @JoinColumn(name = "first_player_id")
-    private Player firstPlayer;
+    var firstPlayer: Player? = null
 
     @ManyToOne
     @JoinColumn(name = "second_player_id")
-    private Player secondPlayer;
-
-    public Location getLocation() {
-        return location;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Player getSecondPlayer() {
-        return secondPlayer;
-    }
-
-    public void setSecondPlayer(Player secondPlayer) {
-        this.secondPlayer = secondPlayer;
-    }
-
-    public Player getFirstPlayer() {
-        return firstPlayer;
-    }
-
-    public void setFirstPlayer(Player firstPlayer) {
-        this.firstPlayer = firstPlayer;
-    }
-
-    public Referee getReferee() {
-        return referee;
-    }
-
-    public void setReferee(Referee referee) {
-        this.referee = referee;
-    }
-
-    public CompetitionLevel getCompetitionLevel() {
-        return competitionLevel;
-    }
-
-    public void setCompetitionLevel(CompetitionLevel competitionLevel) {
-        this.competitionLevel = competitionLevel;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
+    var secondPlayer: Player? = null
 }

@@ -1,6 +1,6 @@
-package my.example.awards.model;
+package my.example.awards.model
 
-public enum CompetitionLevel {
+enum class CompetitionLevel {
     DISTRICT,
     REGIONAL,
     DOMESTIC,

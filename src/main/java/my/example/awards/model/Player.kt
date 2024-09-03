@@ -1,46 +1,27 @@
-package my.example.awards.model;
+package my.example.awards.model
 
-import jakarta.persistence.*;
-
-import java.util.LinkedHashSet;
-import java.util.Set;
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.JoinTable
+import jakarta.persistence.ManyToMany
+import jakarta.persistence.OneToMany
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "player")
-public class Player extends Person {
+class Player : Person() {
     @Column(name = "rating")
-    private Integer rating;
+    var rating: Int? = null
 
     @OneToMany(mappedBy = "winner", orphanRemoval = true)
-    private Set<Award> awards = new LinkedHashSet<>();
+    var awards: MutableSet<Award?>? = LinkedHashSet<Award?>()
 
     @ManyToMany
-    @JoinTable(name = "player_sport_school",
-            joinColumns = @JoinColumn(name = "player_id"),
-            inverseJoinColumns = @JoinColumn(name = "sport_school_id"))
-    private Set<SportSchool> sportSchools = new LinkedHashSet<>();
-
-    public Set<SportSchool> getSportSchools() {
-        return sportSchools;
-    }
-
-    public void setSportSchools(Set<SportSchool> sportSchools) {
-        this.sportSchools = sportSchools;
-    }
-
-    public Set<Award> getAwards() {
-        return awards;
-    }
-
-    public void setAwards(Set<Award> awards) {
-        this.awards = awards;
-    }
-
-    public Integer getRating() {
-        return rating;
-    }
-
-    public void setRating(Integer rating) {
-        this.rating = rating;
-    }
+    @JoinTable(
+        name = "player_sport_school",
+        joinColumns = [JoinColumn(name = "player_id")],
+        inverseJoinColumns = [JoinColumn(name = "sport_school_id")]
+    )
+    var sportSchools: MutableSet<SportSchool?>? = LinkedHashSet<SportSchool?>()
 }

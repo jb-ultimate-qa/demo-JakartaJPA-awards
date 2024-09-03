@@ -1,58 +1,30 @@
-package my.example.awards.model;
+package my.example.awards.model
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column
+import jakarta.persistence.Entity
+import jakarta.persistence.Id
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.ManyToOne
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "award")
-public class Award {
+class Award {
     @Id
     @Column(name = "id", nullable = false)
-    private Integer id;
+    var id: Int? = null
 
     @Column(name = "year_", nullable = false)
-    private Short year;
+    var year: Short? = null
 
     @Column(name = "title", nullable = false)
-    private String title;
+    var title: String? = null
 
     @ManyToOne
     @JoinColumn(name = "winner_id")
-    private Player winner;
+    var winner: Player? = null
 
-    public Player getWinner() {
-        return winner;
-    }
-
-    public void setWinner(Player winner) {
-        this.winner = winner;
-    }
-
-    public Short getYear() {
-        return year;
-    }
-
-    public void setYear(Short year) {
-        this.year = year;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getSimpleName() + " (" + year + " - " + title + ")";
+    override fun toString(): String {
+        return javaClass.getSimpleName() + " (" + year + " - " + title + ")"
     }
 }

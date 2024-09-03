@@ -1,10 +1,11 @@
-package my.example.awards.model;
+package my.example.awards.model
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.Column
+import jakarta.persistence.Embeddable
 
 @Embeddable
-public record LicenseInfo(
-        @Column(name = "sn") Integer serialNumber,
-        @Column(name = "descr") String description) {
-}
+@JvmRecord
+data class LicenseInfo(
+    @field:Column(name = "sn") val serialNumber: Int?,
+    @field:Column(name = "descr") val description: String?
+)

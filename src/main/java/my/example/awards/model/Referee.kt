@@ -1,27 +1,26 @@
-package my.example.awards.model;
+package my.example.awards.model
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.Entity
+import jakarta.persistence.JoinColumn
+import jakarta.persistence.OneToOne
+import jakarta.persistence.Table
 
 @Entity
 @Table(name = "referee")
-public class Referee extends Person {
+class Referee : Person() {
     @OneToOne(orphanRemoval = true)
     @JoinColumn(name = "license_id")
-    private License license;
+    private var license: License? = null
 
-    public License getLicense() {
-        return license;
+    fun getLicense(): License {
+        return license!!
     }
 
-    public void setLicense(License license) {
-        this.license = license;
+    fun setLicense(license: License) {
+        this.license = license
     }
 
-    @Override
-    public String toString() {
-        return "Referee " + getFullName() + " with license number " + license.getLicenseNumber();
+    override fun toString(): String {
+        return "Referee " + fullName + " with license number " + license!!.licenseNumber
     }
 }
