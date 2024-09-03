@@ -8,10 +8,8 @@ import jakarta.ws.rs.Produces
 class HelloResource {
     @GET
     @Produces("text/html")
-    fun hello(): String {
-        return "Hello, User!" +
+    fun hello() = "Hello, User!" +
                 "Try this URL:</br></br><a href=\"awards\">awards</a></br>" +
                 "<a href=\"players\">players</a></br>" +
                 "<a href=\"referee\">referee</a></br>"
-    }
 }
