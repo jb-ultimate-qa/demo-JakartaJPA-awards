@@ -1,22 +1,24 @@
-package my.example.awards.endpoints;
+package my.example.awards.endpoints
 
-import jakarta.ws.rs.*;
-import my.example.awards.queries.HqlQueries;
+import jakarta.ws.rs.GET
+import jakarta.ws.rs.Path
+import jakarta.ws.rs.Produces
+import my.example.awards.queries.HqlQueries
 
 @Path("/referee")
-public class RefereeResource {
-    @GET
-    @Produces("text/html")
-    @Path("/")
-    public String getLinks() {
-        return "Try this URL:</br></br><a href=\"" +
-                "referee/hql-get-with-licence-number\">referee/hql-get-with-licence-number</a></br>";
-    }
+class RefereeResource {
+    @get:Path("/")
+    @get:Produces("text/html")
+    @get:GET
+    val links: String
+        get() = "Try this URL:</br></br><a href=\"" +
+                "referee/hql-get-with-licence-number\">referee/hql-get-with-licence-number</a></br>"
 
-    @GET
-    @Path("hql-get-with-licence-number")
-    public String getRefereeByLicenceNumber() {
-        HqlQueries hqlQueries = new HqlQueries();
-        return hqlQueries.getRefereeByLicenceNumber("LR001");
-    }
+    @get:Path("hql-get-with-licence-number")
+    @get:GET
+    val refereeByLicenceNumber: String?
+        get() {
+            val hqlQueries = HqlQueries()
+            return hqlQueries.getRefereeByLicenceNumber("LR001")
+        }
 }
