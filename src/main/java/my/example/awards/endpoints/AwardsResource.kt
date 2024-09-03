@@ -33,7 +33,7 @@ class AwardsResource {
     val allAwardsHibernate: String?
         get() {
             val hqlQueries = HqlQueries()
-            return hqlQueries.getAllAwards()
+            return hqlQueries.allAwards
         }
 
     @get:Path("hql-get-awards-of-high-rated-players")
@@ -41,7 +41,7 @@ class AwardsResource {
     val awardsOfHighRatedPlayers: String?
         get() {
             val hqlQueries = HqlQueries()
-            return hqlQueries.getAwardsOfHighRatedPlayers()
+            return hqlQueries.awardsOfHighRatedPlayers
         }
 
     @get:Path("sql-get-awards-after-2022")
