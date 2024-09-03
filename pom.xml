@@ -116,9 +116,9 @@
                     <apiVersion>2.0</apiVersion>
 
                     <compilerPlugins>
+                        <plugin>all-open</plugin>
                         <!-- Maybe the project is already Ok currently. -->
                         <!-- But we can add problematic classes later, so let's add the plugin. -->
-                        <plugin>all-open</plugin>
                         <plugin>jpa</plugin>
                     </compilerPlugins>
                     <pluginOptions>
