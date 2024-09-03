@@ -1,31 +1,30 @@
-package my.example.awards.queries;
+package my.example.awards.queries
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.Persistence;
-import my.example.awards.model.Award;
+import jakarta.persistence.EntityManager
+import jakarta.persistence.Persistence
+import my.example.awards.model.Award
+import my.example.awards.utils.QueryResultPrettier.concatenateObjects
+import my.example.awards.utils.QueryResultPrettier.printObjects
 
-import static my.example.awards.utils.QueryResultPrettier.concatenateObjects;
-import static my.example.awards.utils.QueryResultPrettier.printObjects;
+class SqlQueries {
+    private val entityManager: EntityManager?
 
-public class SqlQueries {
-
-    private final EntityManager entityManager;
-
-    public SqlQueries() {
+    init {
         try { // use unit from persistence.xml
             entityManager = Persistence.createEntityManagerFactory("jpa-default")
-                    .createEntityManager();
-        } catch (Throwable ex) {
-            throw new ExceptionInInitializerError(ex);
+                .createEntityManager()
+        } catch (ex: Throwable) {
+            throw ExceptionInInitializerError(ex)
         }
     }
 
-    public String getAwardsAfter2022(){ //works
-        var results = entityManager
-                .createNativeQuery("select * from award where award.year_ > 2023;", Award.class)
-                .getResultList();
+    val awardsAfter2022: String
+        get() { //works
+            val results = entityManager!!
+                .createNativeQuery("select * from award where award.year_ > 2023;", Award::class.java)
+                .resultList
 
-        printObjects(results);
-        return concatenateObjects(results);
-    }
+            printObjects<Any?>(results)
+            return concatenateObjects<Any?>(results)
+        }
 }

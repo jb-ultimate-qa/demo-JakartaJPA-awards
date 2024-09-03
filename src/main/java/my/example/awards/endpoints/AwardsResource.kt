@@ -49,6 +49,6 @@ class AwardsResource {
     val awardsAfter2022: String?
         get() {
             val sqlQueries = SqlQueries()
-            return sqlQueries.getAwardsAfter2022()
+            return sqlQueries.awardsAfter2022
         }
 }
