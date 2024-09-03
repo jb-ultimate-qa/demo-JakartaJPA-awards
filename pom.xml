@@ -15,6 +15,10 @@
         <maven.compiler.target>17</maven.compiler.target>
         <maven.compiler.source>17</maven.compiler.source>
         <junit.version>5.10.2</junit.version>
+
+        <!-- This is to be changed to 2.1.0 when it will be released. -->
+        <!-- Intermediate 2.1.0-RC, etc, also can be tried. -->
+        <kotlin.version>2.1.0-dev-6238</kotlin.version>
     </properties>
 
     <dependencies>
@@ -85,4 +89,18 @@
             </plugin>
         </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>space-dev</id>
+            <url>https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev</url>
+        </repository>
+    </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+            <id>space-dev</id>
+            <url>https://maven.pkg.jetbrains.space/kotlin/p/kotlin/dev</url>
+        </pluginRepository>
+    </pluginRepositories>
 </project>
