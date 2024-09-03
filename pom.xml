@@ -122,7 +122,9 @@
                         <plugin>jpa</plugin>
                     </compilerPlugins>
                     <pluginOptions>
+                        <!-- I did not know JPA requires 'all-open', but it does - and I'm Ok. -->
                         <option>all-open:annotation=jakarta.ws.rs.Path</option>
+                        <!-- Since we added 'jpa' plugin, not "naked" 'no-arg', then we already have required JPA annotations preconfigured. -->
                         <!--<option>no-arg:annotation=jpa.specific.AdditionalAnnotation</option>-->
                         <!--<option>no-arg:invokeInitializers=true</option>-->
                     </pluginOptions>
