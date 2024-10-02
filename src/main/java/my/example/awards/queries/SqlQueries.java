@@ -28,4 +28,13 @@ public class SqlQueries {
         printObjects(results);
         return concatenateObjects(results);
     }
+
+    public String getUsers(){
+        var results = entityManager
+                .createNativeQuery("select usename from pg_user;")
+                .getResultList();
+
+        printObjects(results);
+        return concatenateObjects(results);
+    }
 }

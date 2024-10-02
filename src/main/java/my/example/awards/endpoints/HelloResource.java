@@ -12,6 +12,7 @@ public class HelloResource {
         return "Hello, User!" +
                 "Try this URL:</br></br><a href=\"awards\">awards</a></br>" +
                 "<a href=\"players\">players</a></br>" +
-                "<a href=\"referee\">referee</a></br>";
+                "<a href=\"referee\">referee</a></br>" +
+                "<a href=\"db/get-users\">db/get-users</a></br>";
     }
 }

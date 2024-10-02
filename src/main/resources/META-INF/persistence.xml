@@ -16,9 +16,9 @@
 
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/awards"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://db-postgres15/postgres"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
-            <property name="jakarta.persistence.jdbc.password" value="postgres"/>
+            <property name="jakarta.persistence.jdbc.password" value="mypassword"/>
 
 <!--        <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect" />-->
             <property name="hibernate.show_sql" value="true" />
