@@ -46,3 +46,12 @@ Example configuration is in `.idea/runConfigurations/JBoss_WildFly_31_0_0_Final.
    - Ensure app is running in Tomcat server
 8. Go to URL http://localhost:8080/demoJPA-awards-1.0-SNAPSHOT/db/get-users
    - Ensure db is connected (see only "postgres" as a result)
+
+
+### How to do the same with simple way using docker-compose
+1. Open the terminal in a project's root directory.
+2. Run command `docker-compose up -d`
+3. Go to URL http://localhost:8080/demoJPA-awards-1.0-SNAPSHOT/hello
+   - Ensure app is running in Tomcat server 
+4. Go to URL http://localhost:8080/demoJPA-awards-1.0-SNAPSHOT/db/get-users
+   - Ensure db is connected (see only "postgres" as a result)
