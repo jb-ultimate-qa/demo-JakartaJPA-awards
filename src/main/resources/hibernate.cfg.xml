@@ -14,6 +14,7 @@
     <property name="hibernate.format_sql">true</property>
     <property name="hibernate.highlight_sql">true</property>
     <property name="hibernate.hbm2ddl.auto">update</property>
+    <property name="hibernate.jpa.compliance.query=false">update</property>
 
     <mapping class="my.example.awards.model.Award"/>
     <mapping class="my.example.awards.model.Competition"/>
