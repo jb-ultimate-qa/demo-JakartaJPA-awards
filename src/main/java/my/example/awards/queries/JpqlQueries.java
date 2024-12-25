@@ -22,6 +22,7 @@ public class JpqlQueries {
 
     public String getAllAwards(){ // works
         var results = entityManager
+//                .createQuery("select a from my.example.awards.model.Award a join my.example.awards.model.Player p on p.id=a.winner.id")
                 .createQuery("FROM Award a")
                 .getResultList();
 

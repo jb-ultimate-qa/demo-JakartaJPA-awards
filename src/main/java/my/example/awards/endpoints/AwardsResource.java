@@ -1,6 +1,7 @@
 package my.example.awards.endpoints;
 
 import jakarta.ws.rs.*;
+import my.example.awards.queries.HqlAnnotated;
 import my.example.awards.queries.HqlQueries;
 import my.example.awards.queries.JpqlQueries;
 import my.example.awards.queries.SqlQueries;
@@ -47,4 +48,25 @@ public class AwardsResource {
         SqlQueries sqlQueries = new SqlQueries();
         return sqlQueries.getAwardsAfter2022();
     }
+
+    @GET
+    @Path("hql-dto")
+    public String getAwardsDto() {
+        HqlQueries hqlQueries = new HqlQueries();
+        hqlQueries.testDto();
+        return "null";
+    }
+
+//    @GET
+//    @Path("hql-dto")
+//    public String getAwardsDto() {
+//        return HqlAnnotated.getAwardInDto();
+//    }
+//
+//    @GET
+//    @Path("hql-dto-fqn")
+//    public String getAwardsFqnDto() {
+//        SqlQueries sqlQueries = new SqlQueries();
+//        return sqlQueries.getAwardsAfter2022();
+//    }
 }

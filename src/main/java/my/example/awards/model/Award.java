@@ -4,6 +4,10 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "award")
+@NamedQuery(
+        name = "FQN_awards",
+        query = "select a from my.example.awards.model.Award a where a.title='Top Scorer Award'"
+)
 public class Award {
     @Id
     @Column(name = "id", nullable = false)

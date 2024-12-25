@@ -3,6 +3,7 @@ package my.example.awards.endpoints;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
+import my.example.awards.queries.HqlQueries;
 import my.example.awards.queries.JpqlQueries;
 
 @Path("/players")
@@ -22,5 +23,12 @@ public class PlayersResource {
     public String getPlayersFormCitySportClub() {
         JpqlQueries jpqlQueries = new JpqlQueries();
         return jpqlQueries.getPlayersBySchool("City Sports Club");
+    }
+
+    @GET
+    @Path("rank")
+    public String getRank() {
+        HqlQueries queries = new HqlQueries();
+        return queries.selectRank();
     }
 }
