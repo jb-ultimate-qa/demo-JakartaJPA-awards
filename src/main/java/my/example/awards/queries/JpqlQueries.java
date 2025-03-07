@@ -42,4 +42,13 @@ public class JpqlQueries {
         printObjects(results);
         return concatenateObjects(results);
     }
+
+    public String getAllIdentityIdEntity(){ // works
+        var results = entityManager
+                .createQuery("FROM IdentityIdEntity")
+                .getResultList();
+
+        printObjects(results);
+        return concatenateObjects(results);
+    }
 }
