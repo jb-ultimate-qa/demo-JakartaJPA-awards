@@ -4,10 +4,11 @@
 
 JPQL, HQL, SQL queries for PostgreSQL DB, sample data is in resources.
 
-Need to use application server to run this app.
+Need to use application server to run this app. Example configurations are located in `.idea/runConfigurations`
 
-Example configuration is in `.idea/runConfigurations/JBoss_WildFly_31_0_0_Final.xml`
-
+- better to use Tomcat, the project is prepared for it
+- to use WildFly, open pom.xml, uncomment CDI and JAX-RS specifications and comment its implementations. Otherwise, there will be runtime errors
+    - *note: WildFly has its own datastore defined in domain.xml file, and server use it after starting application. So there could be troubles with "hibernate validate" mode.*
 
 
 **Endpoints:**
