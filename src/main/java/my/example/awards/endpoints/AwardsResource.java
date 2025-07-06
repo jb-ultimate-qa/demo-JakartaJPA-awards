@@ -5,6 +5,8 @@ import my.example.awards.queries.HqlQueries;
 import my.example.awards.queries.JpqlQueries;
 import my.example.awards.queries.SqlQueries;
 
+import static my.example.awards.utils.HtmlHelper.generateHtmlLinks;
+
 @Path("/awards")
 @Produces("text/plain")
 public class AwardsResource {
@@ -13,11 +15,11 @@ public class AwardsResource {
     @Produces("text/html")
     @Path("/")
     public String getLinks() {
-        return "Try this URL:</br></br><a href=\"" +
-                "awards/jpql-get-all\">awards/jpql-get-all</a></br><a href=\"" +
-                "awards/hql-get-all\">awards/hql-get-all</a></br><a href=\"" +
-                "awards/hql-get-awards-of-high-rated-players\">awards/hql-get-awards-of-high-rated-players</a></br><a href=\"" +
-                "awards/sql-get-awards-after-2022\">awards/sql-get-awards-after-2022</a>";
+        return generateHtmlLinks("awards",
+                "jpql-get-all",
+                "hql-get-all",
+                "hql-get-awards-of-high-rated-players",
+                "sql-get-awards-after-2022");
     }
 
     @GET

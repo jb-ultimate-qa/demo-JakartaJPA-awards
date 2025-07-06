@@ -5,6 +5,8 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import my.example.awards.queries.JpqlQueries;
 
+import static my.example.awards.utils.HtmlHelper.generateHtmlLinks;
+
 @Path("/players")
 @Produces("text/plain")
 public class PlayersResource {
@@ -13,8 +15,7 @@ public class PlayersResource {
     @Produces("text/html")
     @Path("/")
     public String getLinks() {
-        return "Try this URL:</br></br><a href=\"" +
-                "players/jpql-get-from-sport-club\">players/jpql-get-from-sport-club</a></br>";
+        return generateHtmlLinks("players", "jpql-get-from-sport-club");
     }
 
     @GET
