@@ -20,7 +20,6 @@ public class PlayersResource {
     @GET
     @Path("jpql-get-from-sport-club")
     public String getPlayersFormCitySportClub() {
-        JpqlQueries jpqlQueries = new JpqlQueries();
-        return jpqlQueries.getPlayersBySchool("City Sports Club");
+        return JpqlQueries.getPlayersBySchool("City Sports Club");
     }
 }

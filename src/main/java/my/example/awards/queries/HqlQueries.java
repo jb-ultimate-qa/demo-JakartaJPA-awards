@@ -11,9 +11,9 @@ import static my.example.awards.utils.QueryResultPrettier.printObjects;
 
 public class HqlQueries {
 
-    private final SessionFactory sessionFactory;
+    private static final SessionFactory sessionFactory;
 
-    public HqlQueries() {
+    static {
         try {
             sessionFactory = new Configuration()
                     .configure("hibernate.cfg.xml")
@@ -23,34 +23,37 @@ public class HqlQueries {
         }
     }
 
-    public String getAllAwards(){ // works
-        Session session = sessionFactory.openSession();
-        var results = session
-                .createQuery("FROM Award a", Award.class)
-                .getResultList();
+    public static String getAllAwards() {
+        try (Session session = sessionFactory.openSession()) {
+            var results = session
+                    .createQuery("FROM Award a", Award.class)
+                    .getResultList();
 
-        printObjects(results);
-        return concatenateObjects(results);
+            printObjects(results);
+            return concatenateObjects(results);
+        }
     }
 
-    public String getAwardsOfHighRatedPlayers(){
-        Session session = sessionFactory.openSession();
-        var results = session
-                .createQuery("FROM Award a where a.winner.rating >= 1200", Award.class)
-                .getResultList();
+    public static String getAwardsOfHighRatedPlayers(){
+        try (Session session = sessionFactory.openSession()) {
+            var results = session
+                    .createQuery("FROM Award a where a.winner.rating >= 1200", Award.class)
+                    .getResultList();
 
-        printObjects(results);
-        return concatenateObjects(results);
+            printObjects(results);
+            return concatenateObjects(results);
+        }
     }
 
-    public String getRefereeByLicenceNumber(String licenceNumber){
-        Session session = sessionFactory.openSession();
-        var results = session
-                .createQuery("FROM Referee r where r.license.licenseNumber = :ln", Referee.class)
-                .setParameter("ln", licenceNumber)
-                .getResultList();
+    public static String getRefereeByLicenceNumber(String licenceNumber){
+        try (Session session = sessionFactory.openSession()) {
+            var results = session
+                    .createQuery("FROM Referee r where r.license.licenseNumber = :ln", Referee.class)
+                    .setParameter("ln", licenceNumber)
+                    .getResultList();
 
-        printObjects(results);
-        return concatenateObjects(results);
+            printObjects(results);
+            return concatenateObjects(results);
+        }
     }
 }

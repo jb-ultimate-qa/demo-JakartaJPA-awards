@@ -16,7 +16,6 @@ public class RefereeResource {
     @GET
     @Path("hql-get-with-licence-number")
     public String getRefereeByLicenceNumber() {
-        HqlQueries hqlQueries = new HqlQueries();
-        return hqlQueries.getRefereeByLicenceNumber("LR001");
+        return HqlQueries.getRefereeByLicenceNumber("LR001");
     }
 }

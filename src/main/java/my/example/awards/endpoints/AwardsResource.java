@@ -23,28 +23,24 @@ public class AwardsResource {
     @GET
     @Path("jpql-get-all")
     public String getAllAwards() {
-        JpqlQueries jpqlQueries = new JpqlQueries();
-        return jpqlQueries.getAllAwards();
+        return JpqlQueries.getAllAwards();
     }
 
     @GET
     @Path("hql-get-all")
     public String getAllAwardsHibernate() {
-        HqlQueries hqlQueries = new HqlQueries();
-        return hqlQueries.getAllAwards();
+        return HqlQueries.getAllAwards();
     }
 
     @GET
     @Path("hql-get-awards-of-high-rated-players")
     public String getAwardsOfHighRatedPlayers() {
-        HqlQueries hqlQueries = new HqlQueries();
-        return hqlQueries.getAwardsOfHighRatedPlayers();
+        return HqlQueries.getAwardsOfHighRatedPlayers();
     }
 
     @GET
     @Path("sql-get-awards-after-2022")
     public String getAwardsAfter2022() {
-        SqlQueries sqlQueries = new SqlQueries();
-        return sqlQueries.getAwardsAfter2022();
+        return SqlQueries.getAwardsAfter2022();
     }
 }
