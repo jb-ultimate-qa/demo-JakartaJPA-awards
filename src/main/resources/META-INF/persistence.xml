@@ -8,6 +8,7 @@
         <class>my.example.awards.model.Award</class>
         <class>my.example.awards.model.Competition</class>
         <class>my.example.awards.model.License</class>
+        <class>my.example.awards.model.LicenseInfo</class>
         <class>my.example.awards.model.Location</class>
         <class>my.example.awards.model.Person</class>
         <class>my.example.awards.model.Player</class>
