@@ -3,6 +3,7 @@ package my.example.awards.queries;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 
 import java.util.List;
 
@@ -46,5 +47,14 @@ public class JpqlQueries {
             printObjects(results);
             return concatenateObjects(results);
         }
+    }
+
+    public static void testJpqlQueries(){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Query valid = entityManager.createQuery("from Award a where a.title like '%a'");
+//        Query invalidSchema = entityManager.createQuery("from Award a where a.wrongAttr = 1");
+//        Query invalidSyntax = entityManager.createQuery("from Award a wrong_keyword");
+//        Query checkSchemaCompletion = entityManager.createQuery("from Award a where a.");
+//        Query checkSyntaxCompletion = entityManager.createQuery("from Award a wh");
     }
 }
