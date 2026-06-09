@@ -4,6 +4,14 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "competition")
+@NamedQueries({
+        @NamedQuery(name = "Competition.findByCity",                        // by Embedded attribute, parametrized
+                query = "select c from Competition c where c.location.city = ?1"),
+        @NamedQuery(name = "Competition.findTitleBySecondPlayerFullName",   // by attribute from Mapped Superclass in ManyToOne relation, parametrized
+                query = "select title from Competition where secondPlayer.fullName = :fullName"),
+        @NamedQuery(name = "Competition.findRegional",                      // by enum value
+                query = "from Competition where competitionLevel = CompetitionLevel.REGIONAL")
+})
 public class Competition {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

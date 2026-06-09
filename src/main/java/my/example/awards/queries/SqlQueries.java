@@ -5,6 +5,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
 import my.example.awards.model.Award;
+import my.example.awards.model.License;
 
 import java.util.List;
 
@@ -41,6 +42,11 @@ public class SqlQueries {
 //        Query invalidSyntax = em.createNativeQuery("select * from award as a wrong_keyword award.year_ > 2023", Award.class);
 //        Query checkSchemaCompletion = em.createNativeQuery("select * from award where award", Award.class);
 //        Query checkSyntaxCompletion = em.createNativeQuery("select * from award wh", Award.class);
+    }
+
+    public void testNavigation(){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        var results1 = entityManager.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
     }
 
 }

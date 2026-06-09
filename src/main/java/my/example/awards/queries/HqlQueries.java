@@ -1,6 +1,8 @@
 package my.example.awards.queries;
 
 import my.example.awards.model.Award;
+import my.example.awards.model.Competition;
+import my.example.awards.model.License;
 import my.example.awards.model.Referee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -64,5 +66,14 @@ public class HqlQueries {
 //        var invalidSyntax = session.createQuery("from Award a wrong_keyword", Award.class);
 //        var checkSchemaCompletion = session.createQuery("from Award a where a.", Award.class);
 //        var checkSyntaxCompletion = session.createQuery("from Award a wh", Award.class);
+    }
+
+    public void testNavigation(){
+        Session session = sessionFactory.openSession();
+        var results1 = session.createNamedQuery("Competition.findByCity", Competition.class);
+        var results2 = session.createNamedQuery("Competition.findTitleBySecondPlayerFullName", Competition.class);
+        var results3 = session.createNamedQuery("Competition.findRegional", Competition.class);
+        var results4 = session.createNamedQuery("License.findByLicenseNumber103", License.class);
+//        var results5 = session.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
     }
 }

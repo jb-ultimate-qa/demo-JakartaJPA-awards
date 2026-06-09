@@ -4,6 +4,8 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
+import my.example.awards.model.Competition;
+import my.example.awards.model.License;
 
 import java.util.List;
 
@@ -56,5 +58,14 @@ public class JpqlQueries {
 //        Query invalidSyntax = entityManager.createQuery("from Award a wrong_keyword");
 //        Query checkSchemaCompletion = entityManager.createQuery("from Award a where a.");
 //        Query checkSyntaxCompletion = entityManager.createQuery("from Award a wh");
+    }
+
+    public void testNavigation(){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        var results1 = entityManager.createNamedQuery("Competition.findByCity", Competition.class);
+        var results2 = entityManager.createNamedQuery("Competition.findTitleBySecondPlayerFullName", Competition.class);
+        var results3 = entityManager.createNamedQuery("Competition.findRegional", Competition.class);
+        var results4 = entityManager.createNamedQuery("License.findByLicenseNumber103", License.class);
+//        var results5 = entityManager.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
     }
 }
