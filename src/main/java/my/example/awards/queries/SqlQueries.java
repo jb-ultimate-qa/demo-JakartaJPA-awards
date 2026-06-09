@@ -4,8 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import my.example.awards.model.Award;
-import my.example.awards.model.License;
+import my.example.awards.model.*;
 
 import java.util.List;
 
@@ -47,6 +46,7 @@ public class SqlQueries {
     public void testNavigation(){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         var results1 = entityManager.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
+        var results7 = entityManager.createNamedQuery("SQL.Player.findNameByWinningAfter2023", Player.class);
     }
 
 }

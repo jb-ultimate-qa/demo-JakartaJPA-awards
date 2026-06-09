@@ -4,8 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
-import my.example.awards.model.Competition;
-import my.example.awards.model.License;
+import my.example.awards.model.*;
 
 import java.util.List;
 
@@ -43,7 +42,7 @@ public class JpqlQueries {
                                 join pl.sportSchools ss
                                 where ss.title = ?1
                             """)
-                    .setParameter(1, sportSchoolName)
+                    .setParameter(1, sportSchoolName)     // Use 'National Training Center'
                     .getResultList();
 
             printObjects(results);
@@ -53,7 +52,7 @@ public class JpqlQueries {
 
     public static void testJpqlQueries(){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
-        Query valid = entityManager.createQuery("from Award a where a.title like '%a'");
+        Query valid = entityManager.createQuery("from Award a where a.title like '%er'");
 //        Query invalidSchema = entityManager.createQuery("from Award a where a.wrongAttr = 1");
 //        Query invalidSyntax = entityManager.createQuery("from Award a wrong_keyword");
 //        Query checkSchemaCompletion = entityManager.createQuery("from Award a where a.");
@@ -66,6 +65,8 @@ public class JpqlQueries {
         var results2 = entityManager.createNamedQuery("Competition.findTitleBySecondPlayerFullName", Competition.class);
         var results3 = entityManager.createNamedQuery("Competition.findRegional", Competition.class);
         var results4 = entityManager.createNamedQuery("License.findByLicenseNumber103", License.class);
-//        var results5 = entityManager.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
+        var results5 = entityManager.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
+        var results6 = entityManager.createNamedQuery("Player.countDistinctByFullNameAndRating", Player.class);
+        var results7 = entityManager.createNamedQuery("SQL.Player.findNameByWinningAfter2023", Player.class);
     }
 }

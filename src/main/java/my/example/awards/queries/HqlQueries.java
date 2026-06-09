@@ -1,9 +1,6 @@
 package my.example.awards.queries;
 
-import my.example.awards.model.Award;
-import my.example.awards.model.Competition;
-import my.example.awards.model.License;
-import my.example.awards.model.Referee;
+import my.example.awards.model.*;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -51,7 +48,7 @@ public class HqlQueries {
         try (Session session = sessionFactory.openSession()) {
             var results = session
                     .createQuery("from Referee r where r.license.licenseNumber = :ln", Referee.class)
-                    .setParameter("ln", licenceNumber)
+                    .setParameter("ln", licenceNumber)         // Use 'LR003'
                     .getResultList();
 
             printObjects(results);
@@ -74,6 +71,8 @@ public class HqlQueries {
         var results2 = session.createNamedQuery("Competition.findTitleBySecondPlayerFullName", Competition.class);
         var results3 = session.createNamedQuery("Competition.findRegional", Competition.class);
         var results4 = session.createNamedQuery("License.findByLicenseNumber103", License.class);
-//        var results5 = session.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
+        var results5 = session.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
+        var results6 = session.createNamedQuery("Player.countDistinctByFullNameAndRating", Player.class);
+        var results7 = session.createNamedQuery("SQL.Player.findNameByWinningAfter2023", Player.class);
     }
 }

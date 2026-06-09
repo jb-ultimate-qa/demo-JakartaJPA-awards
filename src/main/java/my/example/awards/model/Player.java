@@ -7,6 +7,10 @@ import java.util.Set;
 
 @Entity
 @Table(name = "player")
+@NamedQuery(name = "Player.countDistinctByFullNameAndRating",
+        query = "select count(distinct p) from Player p where p.fullName = :fullName and p.rating = :rating") // Use parameter 'Carol' and 1300
+@NamedNativeQuery(name = "SQL.Player.findNameByWinningAfter2023",
+        query = "select p.first_name, a.title from player p join award a on a.winner_id=p.id where year_ > 2023")
 public class Player extends Person {
     @Column(name = "rating")
     private Integer rating;
