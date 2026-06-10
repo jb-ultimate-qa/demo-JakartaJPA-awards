@@ -9,6 +9,10 @@ import jakarta.persistence.*;
         "from License l where l.licenseInfo.serialNumber = 103")
 @NamedNativeQuery(name = "SQL.License.findByLicenseNumber102",      // by Embedded attribute, SQL
         query = "select license_number, sn, descr from license where sn = 102")
+@NamedStatement(name = "License.updateDescriptionBySerialNumber",    // by Embedded attribute, JPQL (since JPA 4.0)
+        statement = "update License l set l.licenseInfo.description = :descr where l.licenseInfo.serialNumber = :sn")
+@NamedNativeStatement(name = "SQL.License.deleteBySerialNumber",     // by Embedded attribute, SQL (since JPA 4.0)
+        statement = "delete from license where sn = :sn")
 public class License {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

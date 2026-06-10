@@ -4,6 +4,11 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "award")
+@NamedQuery(name = "Award.findByYear", query = "from Award where year = :year")
+@NamedStatement(name = "Award.retitle",
+        statement = "update Award a set a.title = :newTitle where a.year = :year")
+@NamedNativeStatement(name = "SQL.Award.bumpYears",
+        statement = "update award set year_ = year_ + 1 where title like :pattern")
 public class Award {
     @Id
     @Column(name = "id", nullable = false)

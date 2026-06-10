@@ -62,11 +62,16 @@
             <version>3.1.6</version>
         </dependency>
 
-        <!-- Jakarta JPA. No specification, Hibernate implementation is used. Can be switched to Eclipselink -->
+        <!-- Jakarta Persistence API 4 (M4) - pinned to resolve new annotations: @NamedStatement, @NamedNativeStatement, @JakartaQuery, @NativeQuery, and EntityAgent/EntityHandler -->
+        <dependency>
+            <groupId>jakarta.persistence</groupId>
+            <artifactId>jakarta.persistence-api</artifactId>
+            <version>4.0.0-M4</version>
+        </dependency>
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.4.5.Final</version>
+            <version>8.0.0.Alpha1</version>
         </dependency>
         <!--        <dependency>-->
         <!--            <groupId>org.eclipse.persistence</groupId>-->

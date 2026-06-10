@@ -26,7 +26,7 @@ public class JpqlQueries {
     public static String getAllAwards(){
         try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
             List<?> results = entityManager
-                    .createQuery("FROM Award a")
+                    .createQuery("FROM Award a", Award.class)
                     .getResultList();
 
             printObjects(results);
@@ -41,7 +41,7 @@ public class JpqlQueries {
                             select pl.fullName from Player pl
                                 join pl.sportSchools ss
                                 where ss.title = ?1
-                            """)
+                            """, String.class)
                     .setParameter(1, sportSchoolName)     // Use 'National Training Center'
                     .getResultList();
 
