@@ -1,4 +1,4 @@
-package my.example.awards.model;
+package my.example.awards.model.supplemental;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;

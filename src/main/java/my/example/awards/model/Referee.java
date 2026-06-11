@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
+import my.example.awards.model.supplemental.Person;
 
 @Entity
 @Table(name = "referee")
