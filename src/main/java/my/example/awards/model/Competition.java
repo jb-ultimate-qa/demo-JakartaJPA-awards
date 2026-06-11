@@ -1,6 +1,8 @@
 package my.example.awards.model;
 
 import jakarta.persistence.*;
+import my.example.awards.model.supplemental.CompetitionLevel;
+import my.example.awards.model.supplemental.Location;
 
 @Entity
 @Table(name = "competition")

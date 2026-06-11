@@ -29,11 +29,11 @@ public interface AwardsRepository {
     @JakartaQuery("select a from Award a where a.title like :pattern")
     List<Award> findByTitlePattern(String pattern);
 
-    // navigation through ManyToOne to Mapped Superclass attribute
+    // attribute from Mapped Superclass of a ManyToOne attribute
     @JakartaQuery("select a from Award a where a.winner.fullName = :name")
     List<Award> findByWinnerName(String name);
 
-    // navigation through Embedded attribute
+    // Embedded attribute
     @JakartaQuery("select c from Competition c where c.location.city = :city")
     List<Competition> competitionsInCity(String city);
 
@@ -45,13 +45,18 @@ public interface AwardsRepository {
     @JakartaQuery("select count(distinct p) from Player p where p.rating >= :minRating")
     long countByMinRating(int minRating);
 
+    // join
+    @JakartaQuery("select p from Player p join p.sportSchools s where s.title = :school")
+    List<Player> playersBySchool(String school);
+
     // DML (Jakarta Query Language also covers update/delete)
     @JakartaQuery("update Award a set a.title = :newTitle where a.id = :id")
     int retitle(int id, String newTitle);
 
-//    @JakartaQuery("from Award a where a.wrongAttr = :year")        // invalid schema - IDE should highlight
+    // --- IDE checks for JakartaQuery ---
+//    @JakartaQuery("from Award a where a.wrongAttr = :year")        // invalid schema
 //    List<Award> invalidSchema(short year);
-//    @JakartaQuery("from Award a wrong_keyword")                    // invalid syntax - IDE should highlight
+//    @JakartaQuery("from Award a wrong_keyword")                    // invalid syntax
 //    List<Award> invalidSyntax();
 //    @JakartaQuery("from Award a where a.")                         // completion of attribute name
 //    List<Award> completionAttr();
@@ -76,6 +81,7 @@ public interface AwardsRepository {
     @NativeQuery("delete from player_sport_school where player_id = :playerId")
     int detachPlayerFromAllSchools(long playerId);
 
+    // --- IDE checks for NativeQuery ---
 //    @NativeQuery("select * from award where award.wrong_column > 2023") // invalid schema
 //    List<Award> nativeInvalidSchema();
 //    @NativeQuery("select * from award as a wrong_keyword")              // invalid syntax
@@ -85,14 +91,4 @@ public interface AwardsRepository {
 //    @NativeQuery("select * from award wh")                              // keyword completion
 //    List<Award> nativeCompletionKeyword();
 
-    // ---- Cross-entity samples to exercise resolution ------------------------
-
-    @JakartaQuery("select l from License l where l.licenseInfo.serialNumber = :sn")
-    License licenseBySerial(int sn);
-
-    @NativeQuery("select count(*) from license where sn = :sn")
-    long countLicensesNative(int sn);
-
-    @JakartaQuery("select p from Player p join p.sportSchools s where s.title = :school")
-    List<Player> playersBySchool(String school);
 }

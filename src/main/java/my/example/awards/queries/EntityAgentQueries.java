@@ -36,7 +36,7 @@ public class EntityAgentQueries {
         }
     }
 
-    // ---- createQuery (JPQL / HQL) --------------------------------------------
+    // ---- EntityAgent.createQuery (JPQL / HQL) --------------------------------------------
 
     public static List<Award> getAllAwards(EntityAgent agent) {
         return agent.createQuery("from Award a", Award.class).getResultList();
@@ -49,19 +49,10 @@ public class EntityAgentQueries {
                 .getResultList();
     }
 
-    public static List<Competition> nationalCompetitions(EntityAgent agent) {
+    public static List<Competition> internationalCompetitions(EntityAgent agent) {
         return agent.createQuery(
-                "from Competition c where c.competitionLevel = my.example.awards.model.CompetitionLevel.NATIONAL",
+                "from Competition c where c.competitionLevel = my.example.awards.model.CompetitionLevel.INTERNATIONAL",
                 Competition.class).getResultList();
-    }
-
-    public static List<Player> playersBySchool(EntityHandler handler, String school) {
-        // EntityHandler (super-interface) also defines createQuery
-        return handler.createQuery(
-                        "select p from Player p join p.sportSchools s where s.title = :school",
-                        Player.class)
-                .setParameter("school", school)
-                .getResultList();
     }
 
     public static void testJpqlQueriesOnAgent(EntityAgent agent) {
@@ -73,7 +64,17 @@ public class EntityAgentQueries {
 //        StatementOrTypedQuery checkSyntaxCompletion = agent.createQuery("from Award a wh");
     }
 
-    // ---- createStatement (JPQL DML) ------------------------------------------
+    // ---- EntityHandler.createQuery (JPQL / HQL) --------------------------------------------
+
+    public static List<Player> playersBySchool(EntityHandler handler, String school) {
+        return handler.createQuery(
+                        "select p from Player p join p.sportSchools s where s.title = :school",
+                        Player.class)
+                .setParameter("school", school)
+                .getResultList();
+    }
+
+    // ---- EntityAgent / EntityHandler - createStatement (JPQL DML) ------------------------------------------
 
     public static int bumpAllRatings(EntityAgent agent, int delta) {
         Statement stmt = agent.createStatement(
@@ -82,8 +83,8 @@ public class EntityAgentQueries {
         return stmt.execute();
     }
 
-    public static int deleteAwardsBefore(EntityAgent agent, short year) {
-        return agent.createStatement("delete from Award a where a.year < :year")
+    public static int deleteAwardsBefore(EntityHandler handler, short year) {
+        return handler.createStatement("delete from Award a where a.year < :year")
                 .setParameter("year", year)
                 .execute();
     }
