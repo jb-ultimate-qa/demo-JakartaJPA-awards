@@ -166,19 +166,17 @@ public class EntityAgentQueries {
 
         // JPA 4: @NamedStatement (JPQL DML) - navigated via createNamedStatement
         Statement ns1 = agent.createNamedStatement("Award.retitle");
-        Statement ns2 = agent.createNamedStatement("Award.deleteByYear");
-        Statement ns3 = agent.createNamedStatement("Competition.retitleByCity");
-        Statement ns4 = agent.createNamedStatement("Competition.deleteBySecondPlayerFullName");
-        Statement ns5 = agent.createNamedStatement("Competition.promoteRegional");
-        Statement ns6 = agent.createNamedStatement("License.updateDescriptionBySerialNumber");
-        Statement ns7 = agent.createNamedStatement("Player.bumpRating");
-        Statement ns8 = agent.createNamedStatement("Player.deleteUnrated");
+        Statement ns2 = agent.createNamedStatement("Competition.retitleByCity");
+        Statement ns3 = agent.createNamedStatement("Competition.deleteBySecondPlayerFullName");
+        Statement ns4 = agent.createNamedStatement("Competition.promoteRegional");
+        Statement ns5 = agent.createNamedStatement("License.updateDescriptionBySerialNumber");
 
         // JPA 4: @NamedNativeStatement (SQL DML)
         Statement nns1 = agent.createNamedStatement("SQL.Award.bumpYears");
         Statement nns2 = agent.createNamedStatement("SQL.License.deleteBySerialNumber");
-        Statement nns3 = agent.createNamedStatement("SQL.Competition.deleteByCity");
-        Statement nns4 = agent.createNamedStatement("SQL.Player.detachFromSchool");
+        Statement nns3 = agent.createNamedStatement("SQL.Player.detachFromSchool");
+        Statement nns4 = agent.createNamedStatement("SQL.Player.bumpRating");
+        Statement nns5 = agent.createNamedStatement("SQL.Player.deleteUnrated");
     }
 
     // ---- Mixed: same EntityManager exposing the new methods directly --------
