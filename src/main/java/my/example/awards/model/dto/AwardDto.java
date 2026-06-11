@@ -1,4 +1,4 @@
-package my.example.awards.queries;
+package my.example.awards.model.dto;
 
 import my.example.awards.model.Award;
 

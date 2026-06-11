@@ -1,7 +1,7 @@
 package my.example.awards.queries;
 
 import my.example.awards.model.Award;
-import my.example.awards.model.Referee;
+import my.example.awards.model.dto.AwardDto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -88,7 +88,7 @@ public class HqlQueries {
 
     public void testDto2(){
         Session session = sessionFactory.openSession();
-        List<AwardDto> results = session.createQuery("select new my.example.awards.queries.AwardDto(title) from Award", AwardDto.class)
+        List<AwardDto> results = session.createQuery("select new my.example.awards.model.dto.AwardDto(title) from Award", AwardDto.class)
                 .getResultList();
         results.forEach(System.out::println);
     }
