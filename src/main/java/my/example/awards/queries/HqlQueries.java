@@ -1,6 +1,9 @@
 package my.example.awards.queries;
 
 import my.example.awards.model.Award;
+import my.example.awards.model.Competition;
+import my.example.awards.model.License;
+import my.example.awards.model.Player;
 import my.example.awards.model.dto.AwardDto;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -91,5 +94,11 @@ public class HqlQueries {
         List<AwardDto> results = session.createQuery("select new my.example.awards.model.dto.AwardDto(title) from Award", AwardDto.class)
                 .getResultList();
         results.forEach(System.out::println);
+    }
+
+    public void testNavigation(){
+        Session session = sessionFactory.openSession();
+        var results4 = session.createNamedQuery("License.findByLicenseNumber103", License.class);
+        var results5 = session.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
     }
 }

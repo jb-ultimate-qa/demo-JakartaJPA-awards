@@ -3,6 +3,9 @@ package my.example.awards.queries;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import my.example.awards.model.Competition;
+import my.example.awards.model.License;
+import my.example.awards.model.Player;
 
 import static my.example.awards.utils.QueryResultPrettier.concatenateObjects;
 import static my.example.awards.utils.QueryResultPrettier.printObjects;
@@ -42,5 +45,10 @@ public class JpqlQueries {
 
         printObjects(results);
         return concatenateObjects(results);
+    }
+
+    public void testNavigation(){
+        var results4 = entityManager.createNamedQuery("License.findByLicenseNumber103", License.class);
+        var results5 = entityManager.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
     }
 }

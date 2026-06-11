@@ -5,6 +5,11 @@ import my.example.awards.model.supplemental.LicenseInfo;
 
 @Entity
 @Table(name = "license")
+@NamedQuery(name = "License.findByLicenseNumber103",                // by Embedded attribute, JPQL
+        query = "select licenseNumber, licenseInfo.serialNumber, licenseInfo.description " +
+                "from License l where l.licenseInfo.serialNumber = 103")
+@NamedNativeQuery(name = "SQL.License.findByLicenseNumber102",      // by Embedded attribute, SQL
+        query = "select license_number, sn, descr from license where sn = 102")
 public class License {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
