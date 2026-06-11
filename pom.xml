@@ -62,7 +62,12 @@
             <version>3.1.6</version>
         </dependency>
 
-        <!-- Jakarta JPA. No specification, Hibernate implementation is used. Can be switched to Eclipselink -->
+        <!-- Jakarta JPA (Persistence): specification, Hibernate implementation, Eclipselink implementation -->
+<!--        <dependency>-->
+<!--            <groupId>jakarta.persistence</groupId>-->
+<!--            <artifactId>jakarta.persistence-api</artifactId>-->
+<!--            <version>3.2.0</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>org.hibernate.orm</groupId>
             <artifactId>hibernate-core</artifactId>
