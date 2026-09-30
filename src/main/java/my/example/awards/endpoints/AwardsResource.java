@@ -45,4 +45,16 @@ public class AwardsResource {
     public String getAwardsAfter2022() {
         return SqlQueries.getAwardsAfter2022();
     }
+
+    @GET
+    @Path("test-hql")
+    public String testHql() {
+        return HqlQueries.testHqlQueries();
+    }
+
+    @GET
+    @Path("test-nav")
+    public String testNavigation() {
+        return HqlQueries.testNavigation();
+    }
 }

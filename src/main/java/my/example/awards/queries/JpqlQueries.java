@@ -26,7 +26,7 @@ public class JpqlQueries {
     public static String getAllAwards(){
         try (EntityManager entityManager = entityManagerFactory.createEntityManager()) {
             List<?> results = entityManager
-                    .createQuery("FROM Award a")
+                    .createQuery("select a FROM Award a")
                     .getResultList();
 
             printObjects(results);

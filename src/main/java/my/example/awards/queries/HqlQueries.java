@@ -56,23 +56,29 @@ public class HqlQueries {
         }
     }
 
-    public static void testHqlQueries() {
+    public static String testHqlQueries() {
         Session session = sessionFactory.openSession();
-        var valid = session.createQuery("from Award a where a.title like '%a'", Award.class);
+        var valid = session.createQuery("from Award a where a.title like '%r'", Award.class).getResultList();
 //        var invalidSchema = session.createQuery("from Award a where a.wrongAttr = 1", Award.class);
 //        var invalidSyntax = session.createQuery("from Award a wrong_keyword", Award.class);
 //        var checkSchemaCompletion = session.createQuery("from Award a where a.", Award.class);
 //        var checkSyntaxCompletion = session.createQuery("from Award a wh", Award.class);
+        return "ok";
     }
 
-    public void testNavigation(){
+    public static String testNavigation(){
         Session session = sessionFactory.openSession();
-        var results1 = session.createNamedQuery("Competition.findByCity", Competition.class);
-        var results2 = session.createNamedQuery("Competition.findTitleBySecondPlayerFullName", Competition.class);
-        var results3 = session.createNamedQuery("Competition.findRegional", Competition.class);
-        var results4 = session.createNamedQuery("License.findByLicenseNumber103", License.class);
-        var results5 = session.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
-        var results6 = session.createNamedQuery("Player.countDistinctByFullNameAndRating", Player.class);
-        var results7 = session.createNamedQuery("SQL.Player.findNameByWinningAfter2023", Player.class);
+//        var results1 = session.createNamedQuery("Competition.findByCity", Competition.class)
+//                .setParameter("1", "London");
+//        var results2 = session.createNamedQuery("Competition.findTitleBySecondPlayerFullName", Competition.class)
+//                .setParameter("fullName", "Carol").getResultList();
+        var results3 = session.createNamedQuery("Competition.findRegional", Competition.class).getResultList();
+//        var results4 = session.createNamedQuery("License.findByLicenseNumber103", License.class);
+//        var results5 = session.createNamedQuery("SQL.License.findByLicenseNumber102", License.class);
+//        var results6 = session.createNamedQuery("Player.countDistinctByFullNameAndRating", Player.class);
+//        var results7 = session.createNamedQuery("SQL.Player.findNameByWinningAfter2023", Player.class);
+//        System.out.println(results1);
+//        System.out.println(results2);
+        return "ok";
     }
 }
